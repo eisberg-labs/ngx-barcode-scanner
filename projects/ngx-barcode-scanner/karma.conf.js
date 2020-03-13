@@ -16,16 +16,24 @@ module.exports = function (config) {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     coverageIstanbulReporter: {
-      dir: require('path').join(__dirname, './coverage/ngx-barcode-scanner'),
+      dir: require('path').join(__dirname, '../../coverage/ngx-barcode-scanner'),
       reports: ['html', 'lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true
+    },
+    customLaunchers: {
+          ChromeFakeWebcam: {
+        base: 'Chrome',
+        flags: [
+          '--use-fake-device-for-media-stream',
+          '--use-fake-ui-for-media-stream']
+      }
     },
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: ['ChromeFakeWebcam'],
     singleRun: true,
     restartOnFileChange: true
   });
