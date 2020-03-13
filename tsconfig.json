@@ -17,7 +17,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-barcode-scanner": [
+        "dist/ngx-barcode-scanner/ngx-barcode-scanner",
+        "dist/ngx-barcode-scanner"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

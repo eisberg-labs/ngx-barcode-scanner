@@ -1,0 +1,30 @@
+::ng-deep #interactive.viewport {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  text-align: center;
+}
+
+::ng-deep #interactive.viewport > canvas,
+::ng-deep #interactive.viewport > video {
+  max-width: 100%;
+  width: 100%;
+}
+
+::ng-deep canvas.drawing,
+::ng-deep canvas.drawingBuffer {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+::ng-deep video {
+  width: 100%;
+  object-fit: cover;
+}
+
+:host {
+  position: static;
+  width: 100%;
+}
