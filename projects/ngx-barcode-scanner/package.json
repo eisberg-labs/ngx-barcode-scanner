@@ -1,6 +1,6 @@
 {
   "name": "@eisberg-labs/ngx-barcode-scanner",
-  "version": "0.0.2-alpha.0",
+  "version": "0.0.2-alpha.1",
   "peerDependencies": {
     "@angular/common": "^9.0.5",
     "@angular/core": "^9.0.5",
@@ -13,7 +13,7 @@
   "devDependencies": {
     "standard-version": "^6.0.1"
   },
-    "author": {
+  "author": {
     "name": "Eisberg Labs",
     "email": "ana@eisberg-labs.com",
     "url": "https://www.eisberg-labs.com"
@@ -36,5 +36,4 @@
     "quagga"
   ],
   "license": "MIT"
-
 }
