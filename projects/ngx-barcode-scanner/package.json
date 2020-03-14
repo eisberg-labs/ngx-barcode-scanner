@@ -1,6 +1,7 @@
 {
   "name": "@eisberg-labs/ngx-barcode-scanner",
   "version": "0.0.2-alpha.1",
+  "private": false,
   "peerDependencies": {
     "@angular/common": "^9.0.5",
     "@angular/core": "^9.0.5",
@@ -13,14 +14,10 @@
   "devDependencies": {
     "standard-version": "^6.0.1"
   },
-  "author": {
-    "name": "Eisberg Labs",
-    "email": "ana@eisberg-labs.com",
-    "url": "https://www.eisberg-labs.com"
-  },
+  "author": "Eisberg Labs <ana@eisberg-labs.com> (https://www.eisberg-labs.com)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/eisberg-labs/ngx-barcode-scanner.git"
+    "url": "git+https://github.com/eisberg-labs/ngx-barcode-scanner.git"
   },
   "bugs": {
     "url": "https://github.com/eisberg-labs/ngx-barcode-scanner/issues"
@@ -35,5 +32,6 @@
     "scanner",
     "quagga"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {}
 }

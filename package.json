@@ -13,7 +13,7 @@
     "release-minor": "npm run lint && npm run test && npm --prefix projects/ngx-barcode-scanner run release -- --release-as minor",
     "release-major": "npm run lint && npm run test && npm --prefix projects/ngx-barcode-scanner run release -- --release-as major",
     "build-prod": "npm run lint && npm run test && ng build ngx-barcode-scanner --prod  && cp README.md dist/ngx-barcode-scanner/README.md",
-    "publish": "npm run build-prod && cd dist/ngx-barcode-scanner && npm publish"
+    "publish": "npm run build-prod && cd dist/ngx-barcode-scanner && npm publish --access public"
   },
   "private": true,
   "dependencies": {
