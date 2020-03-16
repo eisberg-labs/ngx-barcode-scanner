@@ -2,11 +2,12 @@
   "name": "@eisberg-labs/ngx-barcode-scanner",
   "version": "0.0.2-alpha.1",
   "private": false,
+  "dependencies": {
+    "@ericblade/quagga2": "^0.0.18"
+  },
   "peerDependencies": {
     "@angular/common": "^9.0.5",
-    "@angular/core": "^9.0.5",
-    "tslib": "^1.10.0",
-    "@ericblade/quagga2": "^0.0.18"
+    "@angular/core": "^9.0.5"
   },
   "scripts": {
     "release": "standard-version"
@@ -32,6 +33,5 @@
     "scanner",
     "quagga"
   ],
-  "license": "MIT",
-  "dependencies": {}
+  "license": "MIT"
 }
