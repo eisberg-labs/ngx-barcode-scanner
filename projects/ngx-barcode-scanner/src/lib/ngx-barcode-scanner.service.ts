@@ -7,24 +7,24 @@ import {Observable, Subject} from 'rxjs';
 })
 export class NgxBarcodeScannerService {
   private scanResult: Subject<string>;
-  private readonly config: QuaggaJSConfigObject = {
-    inputStream: {
-      name: 'Live',
-      type: 'LiveStream',
-    },
-    locator: {
-      patchSize: 'medium',
-      halfSample: false
-    },
-    locate: true,
-    numOfWorkers: 8,
-    frequency: 10,
-    decoder: {
-      readers: []
-    }
-  };
 
   constructor() {
+  }
+
+  public defaultConfig(): QuaggaJSConfigObject {
+    return {
+      inputStream: {
+        name: 'Live',
+        type: 'LiveStream',
+      },
+      locator: {
+        patchSize: 'medium',
+        halfSample: false
+      },
+      locate: true,
+      numOfWorkers: 8,
+      frequency: 10
+    };
   }
 
   private meanBy(arr: any[], property: string): number {
@@ -53,7 +53,7 @@ export class NgxBarcodeScannerService {
       }
     });
 
-    Quagga.init({...this.config, ...config}, (error) => {
+    Quagga.init(config, (error) => {
       if (error) {
         this.scanResult.error(error);
         this.stop();
