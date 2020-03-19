@@ -1,6 +1,6 @@
 {
   "name": "@eisberg-labs/ngx-barcode-scanner",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": false,
   "dependencies": {
     "@ericblade/quagga2": "^0.0.18"
