@@ -3,7 +3,8 @@
   "version": "0.0.3",
   "private": false,
   "dependencies": {
-    "@ericblade/quagga2": "^0.0.18"
+    "@ericblade/quagga2": "^1.4.0",
+    "tslib": "^2.0.0"
   },
   "peerDependencies": {
     "@angular/common": "^9.0.5",
@@ -13,7 +14,7 @@
     "release": "standard-version"
   },
   "devDependencies": {
-    "standard-version": "^6.0.1"
+    "standard-version": "^12.0.0"
   },
   "author": "Eisberg Labs <ana@eisberg-labs.com> (https://www.eisberg-labs.com)",
   "repository": {
