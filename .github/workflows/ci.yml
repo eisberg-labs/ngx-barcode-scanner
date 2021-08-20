@@ -32,4 +32,4 @@ jobs:
       - name: Test
         env:
           CHROME_BIN: "/usr/bin/chromium-browser"
-        run: apt-get update -yq && apt-get install xvfb -yq && xvfb-run --auto-servernum npm test
+        run: sudo apt-get update -yq && sudo apt-get install xvfb -yq && xvfb-run --auto-servernum npm test
