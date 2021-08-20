@@ -1,3 +1,6 @@
+[![Npm version](https://badge.fury.io/js/%40ngx-formly%2Fcore.svg)](https://npmjs.org/package/@eisberg-labs/ngx-barcode-scanner)
+[![Downloads](http://img.shields.io/npm/dm/@eisberg-labs/ngx-barcode-scanner.svg)](https://npmjs.org/package/@eisberg-labs/ngx-barcode-scanner)
+![Build status](https://github.com/eisberg-labs/ngx-barcode-scanner/actions/workflows/ci/badge.svg)
 ## [ngx-barcode-scanner](https://github.com/eisberg-labs/ngx-barcode-scanner)
 
 Angular 9+ Barcode scanner using [Quagga](https://github.com/ericblade/quagga2).
@@ -7,7 +10,7 @@ This project was generated with [Ngx Lib Starter](https://github.com/eisberg-lab
 ## Installation
 
 ```sh
-$ npm install @eisbeg-labs/ngx-barcode-scanner --save
+$ npm install @eisberg-labs/ngx-barcode-scanner --save
 ```
 
 ## Usage
@@ -44,10 +47,10 @@ value | string | required | undefined | Scan result outputs to value.
 
 ### Events
 
-@Output() | Type | EventType | Required | Description  
+@Output() | Type | EventType | Required | Description
 ----------|------|-----------|----------|------------
 valueChange | EventEmitter | string | required | Scan result updates
-exception | EventEmitter | any | optional | Error events     
+exception | EventEmitter | any | optional | Error events
 ## Demo
 [Try the Demo in StackBlitz](https://stackblitz.com/edit/ngx-barcode-scanner-demo)
 

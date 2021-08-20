@@ -1,24 +1,55 @@
-# NgxBarcodeScanner
+## [ngx-barcode-scanner](https://github.com/eisberg-labs/ngx-barcode-scanner)
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.5.
+Angular 9+ Barcode scanner using [Quagga](https://github.com/ericblade/quagga2).
+This project was generated with [Ngx Lib Starter](https://github.com/eisberg-labs/ngx-lib-starter) version 0.0.1.
 
-## Code scaffolding
 
-Run `ng generate component component-name --project ngx-barcode-scanner` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-barcode-scanner`.
-> Note: Don't forget to add `--project ngx-barcode-scanner` or else it will be added to the default project in your `angular.json` file. 
+## Installation
 
-## Build
+```sh
+$ npm install @eisberg-labs/ngx-barcode-scanner --save
+```
 
-Run `ng build ngx-barcode-scanner` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Usage
+First import to your module:
+```typescript
+   @NgModule({
+     declarations: [
+       AppComponent
+     ],
+     imports: [
+       NgxBarcodeScannerModule
+     ],
+     providers: [],
+     bootstrap: [AppComponent]
+   })
+   export class AppModule { }
 
-## Publishing
+```
+And use in your component html
+```html
+<ngx-barcode-scanner [(value)]="value" [codes]="['code_128', 'ean', 'upc', 'upc_e', 'ean_8']" [errorThreshold]="0.1" (exception)="onError($event)"></ngx-barcode-scanner>
+```
 
-After building your library with `ng build ngx-barcode-scanner`, go to the dist folder `cd dist/ngx-barcode-scanner` and run `npm publish`.
+Supported API
+---
+### Properties
 
-## Running unit tests
+@Input() | Type | Required|Default|Description
+---------|------|---------|-------|-------
+codes | string, string[]| required | ['code_128', 'ean', 'ean_8', 'code_39', 'code_39_vin', 'codabar', 'upc', 'upc_e', 'i2of5', '2of5', 'code_93'] | Type of barcode algorithm to detect. Supported are *code_128*,*ean*,*ean_8*,*code_39*,*code_39_vin*,*codabar*,*upc*,*upc_e*,*i2of5*,*2of5*,*code_93*. Be aware that more codes you define, more possible false positives, and it might take longer to detect a barcode.
+config | QuaggaJSConfigObject | optional | undefined | Optional [quagga](https://github.com/ericblade/quagga2/blob/253aa01999d0e4a912ca33b119c91fd15cd0294b/type-definitions/quagga.d.ts) config object (Define camera device id, media constraints ...).
+errorThreshold | number | optional | 0.1 | Defines threshold of scan detect accuracy. Smaller the value, smaller chance of false positives.
+value | string | required | undefined | Scan result outputs to value.
 
-Run `ng test ngx-barcode-scanner` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Events
 
-## Further help
+@Output() | Type | EventType | Required | Description
+----------|------|-----------|----------|------------
+valueChange | EventEmitter | string | required | Scan result updates
+exception | EventEmitter | any | optional | Error events
+## Demo
+[Try the Demo in StackBlitz](https://stackblitz.com/edit/ngx-barcode-scanner-demo)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## License
+MIT © [Eisberg Labs](http://www.eisberg-labs.com)
