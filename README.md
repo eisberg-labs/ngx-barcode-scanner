@@ -1,4 +1,3 @@
-[![Npm version](https://badge.fury.io/js/%40ngx-formly%2Fcore.svg)](https://npmjs.org/package/@eisberg-labs/ngx-barcode-scanner)
 [![Downloads](http://img.shields.io/npm/dm/@eisberg-labs/ngx-barcode-scanner.svg)](https://npmjs.org/package/@eisberg-labs/ngx-barcode-scanner)
 ![Build status](https://github.com/eisberg-labs/ngx-barcode-scanner/actions/workflows/ci/badge.svg)
 ## [ngx-barcode-scanner](https://github.com/eisberg-labs/ngx-barcode-scanner)
