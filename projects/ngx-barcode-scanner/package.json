@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": false,
   "dependencies": {
-    "@ericblade/quagga2": "^1.4.0",
+    "@ericblade/quagga2": "^1.4.1",
     "tslib": "^2.0.0"
   },
   "peerDependencies": {
