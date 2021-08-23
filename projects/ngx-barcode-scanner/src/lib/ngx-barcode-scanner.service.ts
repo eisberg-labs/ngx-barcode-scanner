@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import Quagga, {QuaggaJSConfigObject, QuaggaJSResultObject} from '@ericblade/quagga2';
-import {Observable, Subject} from 'rxjs';
+import {from, Observable, of, Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -27,13 +27,6 @@ export class NgxBarcodeScannerService {
     };
   }
 
-  private meanBy(arr: any[], property: string): number {
-    if (!arr) {
-      return undefined;
-    }
-    return arr.reduce((acc, item) => (property in item) ? acc + item[property] : acc, 0) / arr.length;
-  }
-
   isScanMatch(scanResult: QuaggaJSResultObject, errorThresholdPercentage: number) {
     const avgErrors = this.meanBy(scanResult.codeResult.decodedCodes, 'error');
     return avgErrors < errorThresholdPercentage;
@@ -53,10 +46,10 @@ export class NgxBarcodeScannerService {
       }
     });
 
-    Quagga.init(config, (error) => {
+    Quagga.init(config, async (error) => {
       if (error) {
         this.scanResult.error(error);
-        this.stop();
+        await this.stop();
       } else {
         Quagga.start();
       }
@@ -66,11 +59,19 @@ export class NgxBarcodeScannerService {
 
   }
 
-  stop() {
+  stop(): Observable<void> {
     if (typeof this.scanResult !== 'undefined') {
       this.scanResult.unsubscribe();
+      this.scanResult = undefined;
     }
-    Quagga.stop();
+    return from(Quagga.stop());
+  }
+
+  private meanBy(arr: any[], property: string): number {
+    if (!arr) {
+      return undefined;
+    }
+    return arr.reduce((acc, item) => (property in item) ? acc + item[property] : acc, 0) / arr.length;
   }
 
   private onProcessed(result: QuaggaJSResultObject) {

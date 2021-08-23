@@ -57,7 +57,6 @@ export class NgxBarcodeScannerComponent implements OnInit, OnDestroy {
     const threshold = isNaN(this.errorThreshold) ? 0.1 : this.errorThreshold;
     this.service.start(this.config, threshold).subscribe((value) => {
       this.valueChange.emit(value);
-      this.service.stop();
     }, error => {
       this.exception.emit(error);
     });
