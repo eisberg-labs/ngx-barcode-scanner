@@ -9,7 +9,7 @@ export class AppComponent {
   value: string;
   isError = false;
 
-  onError(error) {
+  onError(error: any) {
     console.error(error);
     this.isError = true;
   }
