@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test ngx-barcode-scanner"
+    "test": "ng test ngx-barcode-scanner",
+    "publish": "ng build ngx-barcode-scanner&&cd dist/ngx-barcode-scanner&&npm publish"
   },
   "private": true,
   "dependencies": {
