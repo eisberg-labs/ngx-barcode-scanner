@@ -3,30 +3,34 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitReturns": false,
+    "strictPropertyInitialization": false,
+    "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
+    "paths": {
+      "my-lib": [
+        "dist/my-lib/my-lib",
+        "dist/my-lib"
+      ]
+    },
     "experimentalDecorators": true,
-    "module": "es2020",
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2015",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
+    "target": "es2017",
+    "module": "es2020",
     "lib": [
       "es2018",
       "dom"
-    ],
-    "paths": {
-      "ngx-barcode-scanner": [
-        "dist/ngx-barcode-scanner/ngx-barcode-scanner",
-        "dist/ngx-barcode-scanner"
-      ]
-    }
+    ]
   },
   "angularCompilerOptions": {
-    "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
   }
 }

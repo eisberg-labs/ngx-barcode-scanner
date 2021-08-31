@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
 import Quagga, {QuaggaJSConfigObject, QuaggaJSResultObject} from '@ericblade/quagga2';
-import {from, Observable, of, Subject} from 'rxjs';
+import {from, Observable, Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NgxBarcodeScannerService {
-  private scanResult: Subject<string>;
+  private scanResult ?: Subject<string>;
 
   constructor() {
   }
@@ -27,9 +27,9 @@ export class NgxBarcodeScannerService {
     };
   }
 
-  isScanMatch(scanResult: QuaggaJSResultObject, errorThresholdPercentage: number) {
+  isScanMatch(scanResult: QuaggaJSResultObject, errorThresholdPercentage: number): boolean {
     const avgErrors = this.meanBy(scanResult.codeResult.decodedCodes, 'error');
-    return avgErrors < errorThresholdPercentage;
+    return !!avgErrors && avgErrors < errorThresholdPercentage;
   }
 
   start(config: QuaggaJSConfigObject, errorThresholdPercentage: number): Observable<string> {
@@ -42,13 +42,13 @@ export class NgxBarcodeScannerService {
     Quagga.onDetected((result: QuaggaJSResultObject) => {
       const barcode = result.codeResult.code;
       if (this.isScanMatch(result, errorThresholdPercentage)) {
-        this.scanResult.next(barcode + '');
+        this.scanResult?.next(barcode + '');
       }
     });
 
     Quagga.init(config, async (error) => {
       if (error) {
-        this.scanResult.error(error);
+        this.scanResult?.error(error);
         await this.stop();
       } else {
         Quagga.start();
@@ -61,13 +61,13 @@ export class NgxBarcodeScannerService {
 
   stop(): Observable<void> {
     if (typeof this.scanResult !== 'undefined') {
-      this.scanResult.unsubscribe();
+      this.scanResult?.unsubscribe();
       this.scanResult = undefined;
     }
     return from(Quagga.stop());
   }
 
-  private meanBy(arr: any[], property: string): number {
+  private meanBy(arr: any[], property: string): number | undefined {
     if (!arr) {
       return undefined;
     }
@@ -80,8 +80,10 @@ export class NgxBarcodeScannerService {
 
     if (result) {
       if (result.boxes) {
-        drawingCtx.clearRect(0, 0, parseInt(drawingCanvas.getAttribute('width'), 10),
-          parseInt(drawingCanvas.getAttribute('height'), 10));
+        // TODO: remove any cast, test with null values
+        const w = parseInt(drawingCanvas.getAttribute('width') as any, 10);
+        const h = parseInt(drawingCanvas.getAttribute('height') as any, 10);
+        drawingCtx.clearRect(0, 0, w, h);
         result.boxes.filter((box) => box !== result.box).forEach((box) => {
           Quagga.ImageDebug.drawPath(box, {x: 0, y: 1}, drawingCtx, {color: 'green', lineWidth: 2});
         });
