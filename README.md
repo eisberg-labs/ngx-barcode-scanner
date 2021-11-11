@@ -90,5 +90,13 @@ exception | EventEmitter | any | optional | Error events
 ## Demo
 [Try the Demo in StackBlitz](https://stackblitz.com/edit/ngx-barcode-scanner-demo)
 
+## For Maintainers
+### Releasing a new version 
+- Dry run
+```cd projects/ngx-barcode-scanner && npx release-it minor --ci --dry-run --no-git.requireUpstream```
+- Actual run
+```cd projects/ngx-barcode-scanner && npx release-it minor --ci```
+- When a new tag is pushed, release workflow should pick it up and publish to npm
+
 ## License
 MIT © [Eisberg Labs](http://www.eisberg-labs.com)

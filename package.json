@@ -7,7 +7,7 @@
     "build": "ng build",
     "lint": "ng lint ngx-barcode-scanner",
     "test": "ng test ngx-barcode-scanner",
-    "publish": "ng build ngx-barcode-scanner && cd dist/ngx-barcode-scanner && npm publish"
+    "publish": "cp README.md projects/ngx-barcode-scanner && ng build ngx-barcode-scanner && cd dist/ngx-barcode-scanner && npm publish"
   },
   "private": true,
   "dependencies": {
