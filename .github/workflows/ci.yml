@@ -26,9 +26,8 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
-
-
-
+      - name: Lint
+        run: npm run lint
       - name: Test
         env:
           CHROME_BIN: "/usr/bin/chromium-browser"
