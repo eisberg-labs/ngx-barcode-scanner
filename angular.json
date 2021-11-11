@@ -31,18 +31,18 @@
             "buildOptimizer": false,
             "sourceMap": true,
             "optimization": false,
-            "namedChunks": true
+            "namedChunks": true,
+            "preserveSymlinks": true
           },
           "configurations": {
-            "production": {
+            "development": {
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "optimization": true,
-              "outputHashing": "all",
+              "optimization": false,
               "sourceMap": false,
               "namedChunks": false,
               "extractLicenses": true,
@@ -59,7 +59,8 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "preserveSymlinks": true
             }
           },
           "defaultConfiguration": ""
@@ -70,9 +71,10 @@
             "browserTarget": "ngx-barcode-scanner-demo:build"
           },
           "configurations": {
-            "production": {
-              "browserTarget": "ngx-barcode-scanner-demo:build:production"
-            }
+            "development": {
+              "browserTarget": "ngx-barcode-scanner-demo:build:development"
+            },
+            "preserveSymlinks": true
           }
         }
       }
@@ -97,6 +99,13 @@
             }
           },
           "defaultConfiguration": "production"
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "eslintConfig": "projects/ngx-barcode-scanner/.eslintrc",
+            "lintFilePatterns": ["projects/ngx-barcode-scanner/src/**/*.spec.ts", "projects/ngx-barcode-scanner/src/**/*.ts"]
+          }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",

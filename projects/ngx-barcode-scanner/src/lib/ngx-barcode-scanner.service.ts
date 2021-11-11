@@ -8,8 +8,7 @@ import {from, Observable, Subject} from 'rxjs';
 export class NgxBarcodeScannerService {
   private scanResult ?: Subject<string>;
 
-  constructor() {
-  }
+  constructor() { }
 
   public defaultConfig(): QuaggaJSConfigObject {
     return {
@@ -67,6 +66,7 @@ export class NgxBarcodeScannerService {
     return from(Quagga.stop());
   }
 
+  /* eslint-disable */
   private meanBy(arr: any[], property: string): number | undefined {
     if (!arr) {
       return undefined;
@@ -76,14 +76,15 @@ export class NgxBarcodeScannerService {
 
   private onProcessed(result: QuaggaJSResultObject) {
     const drawingCtx = Quagga.canvas.ctx.overlay;
-    const drawingCanvas = Quagga.canvas.dom.overlay;
+    const drawingCanvas: HTMLCanvasElement = Quagga.canvas.dom.overlay;
 
     if (result) {
       if (result.boxes) {
-        // TODO: remove any cast, test with null values
-        const w = parseInt(drawingCanvas.getAttribute('width') as any, 10);
-        const h = parseInt(drawingCanvas.getAttribute('height') as any, 10);
-        drawingCtx.clearRect(0, 0, w, h);
+        const canvasWidth: string = drawingCanvas.getAttribute('width') ?? '0';
+        const canvasHeight: string = drawingCanvas.getAttribute('height') ?? '0';
+        const width = parseInt(canvasWidth, 10);
+        const height = parseInt(canvasHeight, 10);
+        drawingCtx.clearRect(0, 0, width, height);
         result.boxes.filter((box) => box !== result.box).forEach((box) => {
           Quagga.ImageDebug.drawPath(box, {x: 0, y: 1}, drawingCtx, {color: 'green', lineWidth: 2});
         });

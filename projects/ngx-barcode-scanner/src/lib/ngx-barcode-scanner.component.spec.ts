@@ -39,7 +39,6 @@ describe('NgxBarcodeScannerComponent', () => {
             facingMode: 'environment',
             width: {min: 300},
             height: {min: 300},
-            noiseSuppression: true,
             aspectRatio: {min: 1, max: 100},
           }
         },
@@ -67,7 +66,6 @@ describe('NgxBarcodeScannerComponent', () => {
             facingMode: 'environment',
             width: {min: 300},
             height: {min: 300},
-            noiseSuppression: true,
             aspectRatio: {min: 1, max: 100},
           }
         }
