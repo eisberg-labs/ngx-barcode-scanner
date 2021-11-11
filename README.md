@@ -5,6 +5,7 @@
 Angular 9+ Barcode scanner using [Quagga](https://github.com/ericblade/quagga2).
 This project was generated with [Ngx Lib Starter](https://github.com/eisberg-labs/ngx-lib-starter) version 0.0.1.
 
+If you 👍 or use this project, consider giving it a ★, thanks! 🙌
 
 ## Installation
 
@@ -32,6 +33,42 @@ And use in your component html
 ```html
 <ngx-barcode-scanner [(value)]="value" [codes]="['code_128', 'ean', 'upc', 'upc_e', 'ean_8']" [errorThreshold]="0.1" (exception)="onError($event)"></ngx-barcode-scanner>
 ```
+### Start/stop scanning
+**ngx-barcode-scanner** ties the scanning service `start` `onInit` and `stop` is `onDestroy`. You may want to control when `start` and `stop` scanner occurs with the help of `NgxBarcodeScannerService`:
+```
+import {NgxBarcodeScannerService} from "@eisberg-labs/ngx-barcode-scanner";
+
+//...
+
+@Component({
+  selector: 'app-root',
+  template: `<ngx-barcode-scanner [(value)]="value"
+                     [codes]="['code_128', 'ean', 'upc', 'upc_e', 'ean_8']" [errorThreshold]="0.1" (exception)="onError($event)"></ngx-barcode-scanner>`
+    <div style="display: flex; justify-content: space-between; margin: 5% auto">
+        <button (click)="onStartButtonPress()">Start</button>
+        <button (click)="onStopButtonPress()">Stop</button>
+    </div>
+})
+
+  constructor(
+     service: NgxBarcodeScannerService
+  ) {
+    //Do constructor things...
+  }
+
+  onStartButtonPress() {
+    this.service.start(this.quaggaConfig, 0.1)
+  }
+
+  onValueChanges(detectedValue: string) {
+    console.log("Found this: " + detectedValue)
+  }
+  
+  onStopButtonPress() {
+    this.service.stop()
+  }
+```
+
 
 Supported API
 ---
