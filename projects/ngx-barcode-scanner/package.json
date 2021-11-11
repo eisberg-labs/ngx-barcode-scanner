@@ -3,12 +3,12 @@
   "version": "2.0.3",
   "private": false,
   "dependencies": {
-    "@ericblade/quagga2": "^1.4.1",
+    "@ericblade/quagga2": "1.4.2",
     "tslib": "^2.3.0"
   },
   "peerDependencies": {
-    "@angular/common": "^12.0.0",
-    "@angular/core": "^12.0.0"
+    "@angular/common": "^13.0.1",
+    "@angular/core": "^13.0.1"
   },
   "author": "Eisberg Labs <ana@eisberg-labs.com> (https://www.eisberg-labs.com)",
   "repository": {
