@@ -3,9 +3,8 @@
 ## [ngx-barcode-scanner](https://github.com/eisberg-labs/ngx-barcode-scanner)
 
 Angular 9+ Barcode scanner using [Quagga](https://github.com/ericblade/quagga2).
-This project was generated with [Ngx Lib Starter](https://github.com/eisberg-labs/ngx-lib-starter) version 0.0.1.
-
-If you 👍 or use this project, consider giving it a ★, thanks! 🙌
+If you 👍 or use this project, consider giving it a ★, thanks! 🙌  
+## [Demo here](https://eisberg-labs.github.io/ngx-barcode-scanner)
 
 ## Installation
 
@@ -87,8 +86,6 @@ value | string | required | undefined | Scan result outputs to value.
 ----------|------|-----------|----------|------------
 valueChange | EventEmitter | string | required | Scan result updates
 exception | EventEmitter | any | optional | Error events
-## Demo
-[Try the Demo in StackBlitz](https://stackblitz.com/edit/ngx-barcode-scanner-demo)
 
 ## For Maintainers
 ### Releasing a new version 
