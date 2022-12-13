@@ -1,3 +1,5 @@
+# ⚠ Project is moved to [Angular Components](https://github.com/eisberg-labs/angular-components).
+
 [![Downloads](http://img.shields.io/npm/dm/@eisberg-labs/ngx-barcode-scanner.svg)](https://npmjs.org/package/@eisberg-labs/ngx-barcode-scanner)
 ![Build status](https://github.com/eisberg-labs/ngx-barcode-scanner/actions/workflows/ci.yml/badge.svg)
 ## [ngx-barcode-scanner](https://github.com/eisberg-labs/ngx-barcode-scanner)
