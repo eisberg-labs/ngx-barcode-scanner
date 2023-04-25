@@ -1,32 +1,43 @@
-name: CI
+name: Continuous Integration
 
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
 
 jobs:
-  build:
+  docs:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 16.x ]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
-          fetch-depth: 0
+          node-version: ${{ matrix.node-version }}
+      - run: npm i --prefix docs
+      - name: Install prerequisites and test
+        run: npm run build --prefix docs
+  package:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
 
-      - name: Cache node modules
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-node-modules
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
-          path: |
-            ~/.npm
-            ./node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-
-      - name: Install Dependencies
-        run: npm install
-      - name: Test
+          node-version: ${{ matrix.node-version }}
+      - run: npm i
+      - run: npm run lint
+      - name: Install prerequisites and test
         env:
           CHROME_BIN: "/usr/bin/chromium-browser"
         run: sudo apt-get update -yq && sudo apt-get install xvfb -yq && xvfb-run --auto-servernum npm test
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{secrets.CODECOV_TOKEN}}
