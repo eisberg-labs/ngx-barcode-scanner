@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {NgxBarcodeScannerComponent} from './ngx-barcode-scanner.component';
-import Quagga, {QuaggaJSConfigObject} from '@ericblade/quagga2';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgxBarcodeScannerComponent } from './ngx-barcode-scanner.component';
+import Quagga, { QuaggaJSConfigObject } from '@ericblade/quagga2';
 
 describe('NgxBarcodeScannerComponent', () => {
   let component: NgxBarcodeScannerComponent;
@@ -8,7 +8,7 @@ describe('NgxBarcodeScannerComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [NgxBarcodeScannerComponent]
+      declarations: [NgxBarcodeScannerComponent],
     }).compileComponents();
   });
 
@@ -18,7 +18,6 @@ describe('NgxBarcodeScannerComponent', () => {
 
       fixture = TestBed.createComponent(NgxBarcodeScannerComponent);
       component = fixture.componentInstance;
-
     });
 
     it('should report error', (done) => {
@@ -37,10 +36,10 @@ describe('NgxBarcodeScannerComponent', () => {
           constraints: {
             deviceId: '123123',
             facingMode: 'environment',
-            width: {min: 300},
-            height: {min: 300},
-            aspectRatio: {min: 1, max: 100},
-          }
+            width: { min: 300 },
+            height: { min: 300 },
+            aspectRatio: { min: 1, max: 100 },
+          },
         },
       };
       component.config = config;
@@ -52,11 +51,11 @@ describe('NgxBarcodeScannerComponent', () => {
         numOfWorkers: 8,
         frequency: 10,
         decoder: {
-          readers: ['ean_8_reader']
+          readers: ['ean_8_reader'],
         },
         locator: {
           patchSize: 'medium',
-          halfSample: false
+          halfSample: false,
         },
         inputStream: {
           name: 'Live',
@@ -64,13 +63,12 @@ describe('NgxBarcodeScannerComponent', () => {
           constraints: {
             deviceId: '123123',
             facingMode: 'environment',
-            width: {min: 300},
-            height: {min: 300},
-            aspectRatio: {min: 1, max: 100},
-          }
-        }
+            width: { min: 300 },
+            height: { min: 300 },
+            aspectRatio: { min: 1, max: 100 },
+          },
+        },
       });
-
     });
   });
 

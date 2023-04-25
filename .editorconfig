@@ -1,16 +1,21 @@
-# Editor configuration, see https://editorconfig.org
 root = true
 
+# Global
 [*]
-charset = utf-8
 indent_style = space
 indent_size = 2
-insert_final_newline = true
+end_of_line = lf
+charset = utf-8
 trim_trailing_whitespace = true
+insert_final_newline = true
 
-[*.ts]
-quote_type = single
+[*.html]
+indent_size = 4
 
 [*.md]
-max_line_length = off
+# double whitespace at end of line
+# denotes a line break in Markdown
 trim_trailing_whitespace = false
+
+[*.yml]
+indent_size = 2

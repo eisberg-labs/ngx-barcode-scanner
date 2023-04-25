@@ -1,7 +1,7 @@
-import {TestBed} from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
-import {NgxBarcodeScannerService} from './ngx-barcode-scanner.service';
-import {Subject} from 'rxjs';
+import { NgxBarcodeScannerService } from './ngx-barcode-scanner.service';
+import { Subject } from 'rxjs';
 
 describe('NgxBarcodeScannerService', () => {
   let service: NgxBarcodeScannerService;

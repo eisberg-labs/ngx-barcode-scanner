@@ -1,14 +1,12 @@
-import {Injectable} from '@angular/core';
-import Quagga, {QuaggaJSConfigObject, QuaggaJSResultObject} from '@ericblade/quagga2';
-import {from, Observable, Subject} from 'rxjs';
+import { Injectable } from '@angular/core';
+import Quagga, { QuaggaJSConfigObject, QuaggaJSResultObject } from '@ericblade/quagga2';
+import { from, Observable, Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NgxBarcodeScannerService {
-  private scanResult ?: Subject<string>;
-
-  constructor() { }
+  private scanResult?: Subject<string>;
 
   public defaultConfig(): QuaggaJSConfigObject {
     return {
@@ -18,11 +16,11 @@ export class NgxBarcodeScannerService {
       },
       locator: {
         patchSize: 'medium',
-        halfSample: false
+        halfSample: false,
       },
       locate: true,
       numOfWorkers: 8,
-      frequency: 10
+      frequency: 10,
     };
   }
 
@@ -55,7 +53,6 @@ export class NgxBarcodeScannerService {
     });
 
     return this.scanResult;
-
   }
 
   stop(): Observable<void> {
@@ -71,7 +68,7 @@ export class NgxBarcodeScannerService {
     if (!arr) {
       return undefined;
     }
-    return arr.reduce((acc, item) => (property in item) ? acc + item[property] : acc, 0) / arr.length;
+    return arr.reduce((acc, item) => (property in item ? acc + item[property] : acc), 0) / arr.length;
   }
 
   private onProcessed(result: QuaggaJSResultObject) {
@@ -85,17 +82,19 @@ export class NgxBarcodeScannerService {
         const width = parseInt(canvasWidth, 10);
         const height = parseInt(canvasHeight, 10);
         drawingCtx.clearRect(0, 0, width, height);
-        result.boxes.filter((box) => box !== result.box).forEach((box) => {
-          Quagga.ImageDebug.drawPath(box, {x: 0, y: 1}, drawingCtx, {color: 'green', lineWidth: 2});
-        });
+        result.boxes
+          .filter((box) => box !== result.box)
+          .forEach((box) => {
+            Quagga.ImageDebug.drawPath(box, { x: 0, y: 1 }, drawingCtx, { color: 'green', lineWidth: 2 });
+          });
       }
 
       if (result.box) {
-        Quagga.ImageDebug.drawPath(result.box, {x: 0, y: 1}, drawingCtx, {color: '#00F', lineWidth: 2});
+        Quagga.ImageDebug.drawPath(result.box, { x: 0, y: 1 }, drawingCtx, { color: '#00F', lineWidth: 2 });
       }
 
       if (result.codeResult && result.codeResult.code) {
-        Quagga.ImageDebug.drawPath(result.line, {x: 'x', y: 'y'}, drawingCtx, {color: 'red', lineWidth: 3});
+        Quagga.ImageDebug.drawPath(result.line, { x: 'x', y: 'y' }, drawingCtx, { color: 'red', lineWidth: 3 });
       }
     }
   }
