@@ -1,3 +1,8 @@
+---
+title: Ngx Barcode Scanner
+hide_table_of_contents: false
+---
+
 [![Continuous Integration](https://github.com/eisberg-labs/ngx-barcode-scanner/actions/workflows/ci.yml/badge.svg)](https://github.com/eisberg-labs/ngx-barcode-scanner/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/eisberg-labs/ngx-barcode-scanner/branch/master/graph/badge.svg?token=GQCS6ZEVU3)](https://codecov.io/gh/eisberg-labs/ngx-barcode-scanner)
 [![npm downloads](https://img.shields.io/npm/dm/@eisberg-labs/ngx-barcode-scanner.svg)](https://www.npmjs.com/package/@eisberg-labs/ngx-barcode-scanner)
@@ -5,26 +10,8 @@
 [![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/eisberg-labs/ngx-barcode-scanner.svg)](https://isitmaintained.com/project/eisberg-labs/ngx-barcode-scanner 'Average time to resolve an issue')
 [![Follow me](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/anamarjanica/)
 
-## [ngx-barcode-scanner](https://github.com/eisberg-labs/ngx-barcode-scanner)
-
+# Ngx Barcode Scanner
 > Angular 9+ Barcode scanner using [Quagga](https://github.com/ericblade/quagga2).
-
-If you 👍 or use this project, consider giving it a ★, thanks! 🙌  
-
-
-## Table of Contents
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Demo](#demo)
-- [API](#api)
-- [Changelog](#changelog)
-- [Code of Conduct](#code-of-conduct)
-- [Contributing](#contributing)
-- [Sponsors](#sponsors)
-- [Contact](#contact)
-- [License](#license)
-
 
 ## Installation
 
@@ -82,15 +69,20 @@ import {NgxBarcodeScannerService} from "@eisberg-labs/ngx-barcode-scanner";
   onValueChanges(detectedValue: string) {
     console.log("Found this: " + detectedValue)
   }
-  
+
   onStopButtonPress() {
     this.service.stop()
   }
 ```
 
 ## Demo
+<iframe src="https://codesandbox.io/embed/angular-15-ngx-barcode-scanner-forked-gbmqi9?fontsize=14&hidenavigation=1&theme=dark"
+        style={{'width': '100%', 'height':'500px', 'border':0, 'border-radius': '4px', 'overflow':'hidden'}}
+        title="angular-15-ngx-barcode-scanner (forked)"
+        allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+        sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
 
-[View Demo and Documentation](https://ngx-barcode-scanner.amarjanica.com)
 
 ## Api
 ---
@@ -112,19 +104,6 @@ exception | EventEmitter | any | optional | Error events
 
 
 
-## Changelog
-
-All notable changes to this project will be documented in [this file](./CHANGELOG.md).
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
-## Code of Conduct
-
-I follow the [Rust Code of Conduct](http://www.rust-lang.org/conduct.html).
-
-## Contributing
-
-Everyone is welcome to contribute. You can read more about [contributing here](./CONTRIBUTING.md).
-
 ## Sponsors
 
 If you find this project useful, give it a star. You could also consider supporting us through the following platforms:
@@ -138,4 +117,5 @@ As this project grows, I will showcase sponsors' logos and links in this section
 Feel free to reach out to me on [LinkedIn](https://www.linkedin.com/in/anamarjanica/).
 
 ## License
-MIT © [Eisberg Labs](http://www.eisberg-labs.com)
+
+This project is MIT licensed.

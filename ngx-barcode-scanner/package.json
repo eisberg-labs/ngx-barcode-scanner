@@ -1,0 +1,32 @@
+{
+  "name": "@eisberg-labs/ngx-barcode-scanner",
+  "description": "Angular barcode scanner component using Quagga",
+  "version": "5.0.2",
+  "private": false,
+  "peerDependencies": {
+    "@angular/common": "^15.2.0",
+    "@angular/core": "^15.2.0"
+  },
+  "dependencies": {
+    "@ericblade/quagga2": "^1.8.1",
+    "tslib": "^2.3.0"
+  },
+  "author": "Ana Bujan - Eisberg Labs <ana@eisberg-labs.com> (https://www.eisberg-labs.com)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eisberg-labs/ngx-barcode-scanner.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eisberg-labs/ngx-barcode-scanner/issues"
+  },
+  "homepage": "https://ngx-barcode-scanner.amarjanica.com",
+  "keywords": [
+    "angular",
+    "ngx",
+    "barcode",
+    "scan",
+    "scanner",
+    "quagga"
+  ],
+  "license": "MIT"
+}

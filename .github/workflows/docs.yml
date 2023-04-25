@@ -1,0 +1,35 @@
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'docs/**'
+  workflow_dispatch:
+env:
+  AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+  AWS_ACCESS_KEY_ID: "${{ secrets.AWS_ACCESS_KEY_ID }}"
+  AWS_SECRET_ACCESS_KEY: "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
+
+name: Deploy Docusaurus
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Use Node.js 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Install
+        run: npm install --prefix docs
+      - name: Build
+        run: npm run build --prefix docs
+      - name: Deploy to s3
+        uses: eisberg-labs/static-website-to-s3@main
+        with:
+          target: docs/build
+          dest: ${{ secrets.BUCKET_PATH }}
+          exclusions: ^docs\/build\/(index|404).html$
+          bucket: ${{ secrets.PROJECTS_BUCKET }}

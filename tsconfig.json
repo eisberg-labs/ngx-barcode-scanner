@@ -1,31 +1,35 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "strictPropertyInitialization": false,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "noImplicitReturns": false,
-    "strictPropertyInitialization": false,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": false,
     "sourceMap": true,
-    "declaration": false,
-    "downlevelIteration": true,
     "paths": {
-      "my-lib": [
-        "dist/my-lib/my-lib",
-        "dist/my-lib"
+      "ngx-barcode-scanner": [
+        "dist/ngx-barcode-scanner"
       ]
     },
+    "declaration": false,
+    "downlevelIteration": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2017",
+    "target": "ES2022",
     "module": "es2020",
     "lib": [
-      "es2018",
+      "es2020",
       "dom"
-    ]
+    ],
+    "useDefineForClassFields": false
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

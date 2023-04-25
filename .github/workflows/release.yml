@@ -1,43 +1,51 @@
 name: Release
-
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - master
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
 
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Cache node modules
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-node-modules
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
-          path: |
-            ~/.npm
-            ./node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-      # Setup .npmrc file to publish to npm
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
           registry-url: 'https://registry.npmjs.org'
-
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Build
-        run: npm run build
-
-      - name: npm publish
-        run: npm run publish
+          node-version: ${{ matrix.node-version }}
+      - name: Cache Node.js modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Install prerequisites and test
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          CHROME_BIN: "/usr/bin/chromium-browser"
+        run: sudo apt-get update -yq && sudo apt-get install xvfb -yq && xvfb-run --auto-servernum npm test
+      - name: Conventional Changelog Action
+        id: changelog
+        uses: TriPSs/conventional-changelog-action@v3.18.0
+        with:
+          github-token: ${{ secrets.github_token }}
+          version-file: ./ngx-barcode-scanner/package.json
+          tag-prefix: ""
+      - name: Create Release
+        uses: actions/create-release@v1
+        if: steps.changelog.outputs.skipped != 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.github_token }}
+        with:
+          tag_name: ${{ steps.changelog.outputs.tag }}
+          release_name: ${{ steps.changelog.outputs.tag }}
+          body: ${{ steps.changelog.outputs.clean_changelog }}

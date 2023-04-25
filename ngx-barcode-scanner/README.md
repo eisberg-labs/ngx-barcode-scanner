@@ -1,36 +1,14 @@
-[![Continuous Integration](https://github.com/eisberg-labs/ngx-barcode-scanner/actions/workflows/ci.yml/badge.svg)](https://github.com/eisberg-labs/ngx-barcode-scanner/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/eisberg-labs/ngx-barcode-scanner/branch/master/graph/badge.svg?token=GQCS6ZEVU3)](https://codecov.io/gh/eisberg-labs/ngx-barcode-scanner)
-[![npm downloads](https://img.shields.io/npm/dm/@eisberg-labs/ngx-barcode-scanner.svg)](https://www.npmjs.com/package/@eisberg-labs/ngx-barcode-scanner)
-[![npm latest package](https://img.shields.io/npm/v/@eisberg-labs/ngx-barcode-scanner/latest.svg)](https://www.npmjs.com/package/@eisberg-labs/ngx-barcode-scanner)
-[![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/eisberg-labs/ngx-barcode-scanner.svg)](https://isitmaintained.com/project/eisberg-labs/ngx-barcode-scanner 'Average time to resolve an issue')
-[![Follow me](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/anamarjanica/)
+# Ngx Barcode Scanner
+> Angular Barcode scanner using [Quagga](https://github.com/ericblade/quagga2).
 
-## [ngx-barcode-scanner](https://github.com/eisberg-labs/ngx-barcode-scanner)
-
-> Angular 9+ Barcode scanner using [Quagga](https://github.com/ericblade/quagga2).
-
-If you 👍 or use this project, consider giving it a ★, thanks! 🙌  
+If you 👍 this project, consider giving it a ★, thanks! 🙌
 
 
-## Table of Contents
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Demo](#demo)
-- [API](#api)
-- [Changelog](#changelog)
-- [Code of Conduct](#code-of-conduct)
-- [Contributing](#contributing)
-- [Sponsors](#sponsors)
-- [Contact](#contact)
-- [License](#license)
-
-
-## Installation
-
-```sh
-$ npm install @eisberg-labs/ngx-barcode-scanner --save
+# Installation
+```bash
+npm install @eisberg-labs/ngx-barcode-scanner --save
 ```
+
 
 ## Usage
 First import to your module:
@@ -88,12 +66,11 @@ import {NgxBarcodeScannerService} from "@eisberg-labs/ngx-barcode-scanner";
   }
 ```
 
-## Demo
+# Demo
+[View Demo and Documentation](https://www.amarjanica.com/projects/angular-components/documentation/ngx-barcode-scanner/Readme.html)
 
-[View Demo and Documentation](https://ngx-barcode-scanner.amarjanica.com)
 
-## Api
----
+# Api
 ### Properties
 
 @Input() | Type | Required|Default|Description
@@ -110,32 +87,7 @@ value | string | required | undefined | Scan result outputs to value.
 valueChange | EventEmitter | string | required | Scan result updates
 exception | EventEmitter | any | optional | Error events
 
+# License
 
+MIT © [Eisberg Labs](https://www.eisberg-labs.com)
 
-## Changelog
-
-All notable changes to this project will be documented in [this file](./CHANGELOG.md).
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
-## Code of Conduct
-
-I follow the [Rust Code of Conduct](http://www.rust-lang.org/conduct.html).
-
-## Contributing
-
-Everyone is welcome to contribute. You can read more about [contributing here](./CONTRIBUTING.md).
-
-## Sponsors
-
-If you find this project useful, give it a star. You could also consider supporting us through the following platforms:
-- [Become a GitHub Sponsor](https://github.com/sponsors/amarjanica)
-- [Support me on Patreon](https://www.patreon.com/amarjanica)
-
-As this project grows, I will showcase sponsors' logos and links in this section. Thank you for your support!
-
-## Contact
-
-Feel free to reach out to me on [LinkedIn](https://www.linkedin.com/in/anamarjanica/).
-
-## License
-MIT © [Eisberg Labs](http://www.eisberg-labs.com)

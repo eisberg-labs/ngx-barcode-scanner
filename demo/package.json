@@ -1,0 +1,30 @@
+{
+  "name": "ngx-barcode-scanner-basic",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^15.2.8",
+    "@angular/common": "^15.2.8",
+    "@angular/compiler": "^15.2.8",
+    "@angular/core": "^15.2.8",
+    "@angular/platform-browser": "^15.2.8",
+    "@angular/platform-browser-dynamic": "^15.2.8",
+    "@eisberg-labs/ngx-barcode-scanner": "^5.0.2",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.13.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^15.2.6",
+    "@angular/cli": "^15.2.6",
+    "@angular/compiler-cli": "^15.2.8",
+    "@types/node": "18.16.0",
+    "typescript": "~4.9.0"
+  }
+}
