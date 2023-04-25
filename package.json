@@ -13,7 +13,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test --no-watch --code-coverage",
     "lint": "ng lint",
-    "postbuild": "cp README.md LICENSE CHANGELOG.md thumbnail.png dist/ngx-barcode-scanner",
+    "postbuild": "cp README.md LICENSE CHANGELOG.md dist/ngx-barcode-scanner",
     "prettier": "prettier -c ngx-barcode-scanner/src/**/*",
     "prettier:fix": "prettier --write ngx-barcode-scanner/src/**/*"
   },
