@@ -35,29 +35,31 @@ $ npm install @eisberg-labs/ngx-barcode-scanner --save
 ## Usage
 First import to your module:
 ```typescript
-   @NgModule({
-     declarations: [
-       AppComponent
-     ],
-     imports: [
-       NgxBarcodeScannerModule
-     ],
-     providers: [],
-     bootstrap: [AppComponent]
-   })
-   export class AppModule { }
+ @NgModule({
+   declarations: [
+     AppComponent
+   ],
+   imports: [
+     NgxBarcodeScannerModule
+   ],
+   providers: [],
+   bootstrap: [AppComponent]
+ })
+ export class AppModule { }
 
 ```
 And use in your component html
+
 ```html
 <ngx-barcode-scanner [(value)]="value" [codes]="['code_128', 'ean', 'upc', 'upc_e', 'ean_8']" [errorThreshold]="0.1" (exception)="onError($event)"></ngx-barcode-scanner>
 ```
-### Start/stop scanning
-**ngx-barcode-scanner** ties the scanning service `start` `onInit` and `stop` is `onDestroy`. You may want to control when `start` and `stop` scanner occurs with the help of `NgxBarcodeScannerService`:
-```
-import {NgxBarcodeScannerService} from "@eisberg-labs/ngx-barcode-scanner";
 
-//...
+### Start/stop scanning
+
+**ngx-barcode-scanner** ties the scanning service `start` `onInit` and `stop` is `onDestroy`. You may want to control when `start` and `stop` scanner occurs with the help of `NgxBarcodeScannerService`:
+
+```typescript
+import {NgxBarcodeScannerService} from "@eisberg-labs/ngx-barcode-scanner";
 
 @Component({
   selector: 'app-root',
@@ -69,23 +71,23 @@ import {NgxBarcodeScannerService} from "@eisberg-labs/ngx-barcode-scanner";
     </div>
 })
 
-  constructor(
-     service: NgxBarcodeScannerService
-  ) {
-    //Do constructor things...
-  }
+constructor(
+   service: NgxBarcodeScannerService
+) {
+  //Do constructor things...
+}
 
-  onStartButtonPress() {
-    this.service.start(this.quaggaConfig, 0.1)
-  }
+onStartButtonPress() {
+  this.service.start(this.quaggaConfig, 0.1)
+}
 
-  onValueChanges(detectedValue: string) {
-    console.log("Found this: " + detectedValue)
-  }
-  
-  onStopButtonPress() {
-    this.service.stop()
-  }
+onValueChanges(detectedValue: string) {
+  console.log("Found this: " + detectedValue)
+}
+
+onStopButtonPress() {
+  this.service.stop()
+}
 ```
 
 ## Demo
