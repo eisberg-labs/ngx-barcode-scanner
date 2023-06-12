@@ -1,10 +1,9 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { NgxBarcodeScannerService } from './ngx-barcode-scanner.service';
-import { QuaggaJSConfigObject, QuaggaJSReaderConfig } from '@ericblade/quagga2';
+import {QuaggaJSCodeReader, QuaggaJSConfigObject} from '@ericblade/quagga2';
 import { Utils } from './utils';
 
 @Component({
-  // tslint:disable-next-line:component-selector
   selector: 'ngx-barcode-scanner',
   templateUrl: './ngx-barcode-scanner.component.html',
   styleUrls: ['./ngx-barcode-scanner.component.css'],
@@ -77,8 +76,8 @@ export class NgxBarcodeScannerComponent implements OnInit, OnDestroy {
     this.service.stop();
   }
 
-  readers(): string[] {
+  readers(): QuaggaJSCodeReader[] {
     const types = typeof this.codes === 'string' ? [this.codes] : this.codes;
-    return types.map((it) => `${it}_reader`);
+    return types.map((it) => `${it}_reader` as QuaggaJSCodeReader);
   }
 }
