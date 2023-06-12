@@ -4,8 +4,8 @@
   "version": "5.0.2",
   "private": false,
   "peerDependencies": {
-    "@angular/common": "^15.2.0",
-    "@angular/core": "^15.2.0"
+    "@angular/common": "^16.0.0",
+    "@angular/core": "^16.0.0"
   },
   "dependencies": {
     "@ericblade/quagga2": "^1.8.1",
