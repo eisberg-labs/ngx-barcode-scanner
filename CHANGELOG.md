@@ -1,3 +1,12 @@
+## [6.0.1](https://github.com/eisberg-labs/ngx-barcode-scanner/compare/6.0.0...6.0.1) (2023-06-14)
+
+
+### Bug Fixes
+
+* **deps:** update angular monorepo to v16.1.0 ([e772daf](https://github.com/eisberg-labs/ngx-barcode-scanner/commit/e772dafaa0a346c4eb5062c82de117449e3c58f6))
+
+
+
 # [6.0.0](https://github.com/eisberg-labs/ngx-barcode-scanner/compare/v3.0.1...6.0.0) (2023-06-12)
 
 
@@ -21,10 +30,6 @@
 
 
 # [1.0.0](https://github.com/eisberg-labs/ngx-barcode-scanner/compare/v0.0.3...v1.0.0) (2021-07-09)
-
-
-
-## [0.0.3](https://github.com/eisberg-labs/ngx-barcode-scanner/compare/v0.0.2...v0.0.3) (2020-03-19)
 
 
 
