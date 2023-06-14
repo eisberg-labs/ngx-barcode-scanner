@@ -29,22 +29,21 @@ const config = {
 
   presets: [
     [
-      'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
+      '@docusaurus/preset-classic',
+      {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-        gtag: {
-          trackingID: 'G-KF960JLT82', // todo: move to env
+        gtag: !!process.env.ANALYTICS_ID ? {
+          trackingID: process.env.ANALYTICS_ID,
           anonymizeIP: true,
-        },
+        } : undefined,
         docs: {
           routeBasePath: '/', // Serve the docs at the site's root
           /* other docs plugin options */
         },
         blog: false, // Optional: disable the blog plugin
-      }),
+      },
     ],
   ],
 
