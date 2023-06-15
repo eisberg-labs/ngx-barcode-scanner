@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'ngx-barcode-scanner/**'
   workflow_dispatch:
 
 jobs:
